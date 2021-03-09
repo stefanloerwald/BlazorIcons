@@ -30,7 +30,7 @@ namespace Excubo.Generators.Blazor
             foreach (var member in fontAwesome.GetMembers().OfType<IFieldSymbol>())
             {
                 var is_used = usedComponents.Any(type => type!.Name == member.Name && type.ContainingSymbol.Name == "FontAwesome");
-                var markup_instruction = $"builder.AddMarkupContent(0, \"{(member.ConstantValue as string)!.Replace("\"", "\\\"")}\");";
+                var markup_instruction = $"builder.AddMarkupContent(0, \"{(member.ConstantValue as string)!.Replace("\"", "\\\"").Replace("\n", "\\n")}\");";
                 context.AddSource(member.Name, SourceText.From($@"
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
