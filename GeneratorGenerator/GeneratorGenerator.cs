@@ -17,7 +17,7 @@ namespace Raw
 {{
     public static partial class FontAwesome
     {{
-        public const string {System.IO.Path.GetFileNameWithoutExtension(file.Path)} = ""{System.IO.File.ReadAllText(file.Path).Replace("\"", "\\\"")}"";
+        public const string {System.IO.Path.GetFileNameWithoutExtension(file.Path)} = ""{file.GetText(context.CancellationToken).Replace("\"", "\\\"")}"";
     }}
 }}
 ", Encoding.UTF8));
